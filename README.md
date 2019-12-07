@@ -70,10 +70,10 @@ Check out [tutorial](https://stanfordnlp.github.io/stanfordnlp/installation_down
 ### -Encoder
 The original RNN in referenced paper was built as a 4 layers one-way LSTM, for training time we shrink it to 2 layers.
 Parameters explanation:
-    -- input_dim: the dimension of one-hot vector which is supposed to be input into the Encoder, the size - matches the vocabulary's size of original language;
-    -- emb_dim: dimension of embedding layer;
-    -- hid_dim: dimensions of hidden layers H and C;
-    -- dropout: regularizing parameters to prevent over fitting
+-- input_dim: the dimension of one-hot vector which is supposed to be input into the Encoder, the size - matches the vocabulary's size of original language;
+-- emb_dim: dimension of embedding layer;
+-- hid_dim: dimensions of hidden layers H and C;
+-- dropout: regularizing parameters to prevent over fitting
 In forward function, the source language scr is designed to be transformed into dense vectors by embedding layer, and these words are embedded and passed to LSTM then.
 
 ### -Decoder
