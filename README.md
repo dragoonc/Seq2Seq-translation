@@ -49,11 +49,11 @@ pip install -e .
 Getting Started with the neural pipeline
 To run your first StanfordNLP pipeline, simply following these steps in your Python interactive interpreter:
 
->>> import stanfordnlp
->>> stanfordnlp.download('en')   # This downloads the English models for the neural pipeline
->>> nlp = stanfordnlp.Pipeline() # This sets up a default neural pipeline in English
->>> doc = nlp("Barack Obama was born in Hawaii.  He was elected president in 2008.")
->>> doc.sentences[0].print_dependencies()
+`import stanfordnlp
+`stanfordnlp.download('en')   # This downloads the English models for the neural pipeline
+`nlp = stanfordnlp.Pipeline() # This sets up a default neural pipeline in English
+`doc = nlp("Barack Obama was born in Hawaii.  He was elected president in 2008.")
+`doc.sentences[0].print_dependencies()
 
 The last command will print out the words in the first sentence in the input string (or Document, as it is represented in StanfordNLP), as well as the indices for the word that governs it in the Universal Dependencies parse of that sentence (its “head”), along with the dependency relation between the words. 
 
@@ -70,10 +70,10 @@ Check out [tutorial](https://stanfordnlp.github.io/stanfordnlp/installation_down
 ### -Encoder
 The original RNN in referenced paper was built as a 4 layers one-way LSTM, for training time we shrink it to 2 layers.
 Parameters explanation:
--- input_dim: the dimension of one-hot vector which is supposed to be input into the Encoder, the size - matches the vocabulary's size of original language;
--- emb_dim: dimension of embedding layer;
--- hid_dim: dimensions of hidden layers H and C;
--- dropout: regularizing parameters to prevent over fitting
+    -- input_dim: the dimension of one-hot vector which is supposed to be input into the Encoder, the size - matches the vocabulary's size of original language;
+    -- emb_dim: dimension of embedding layer;
+    -- hid_dim: dimensions of hidden layers H and C;
+    -- dropout: regularizing parameters to prevent over fitting
 In forward function, the source language scr is designed to be transformed into dense vectors by embedding layer, and these words are embedded and passed to LSTM then.
 
 ### -Decoder
@@ -109,15 +109,21 @@ The embedding dimension(emb_dim) and dropout could be different from Encoder to 
 
 ### Define training function
 Parameters explanation:
+
     -- model.train(): enable trainig model, enable batch normalization and Dropout;
+
     -- clip_grad_norm: cutting gradients to prevent explosion. clip: gradient threshold;
+
     -- .view(): reducing the dimensions of output and trg for the loss culculation. The first column of output and trg will not be involved in calculations of loss in order to improve the accuracy becuase the beginning of each sentence of trg is the marker <sos>.
 
 ### Define testing function
-    The difference between the evaluation phase and the training phase is that no parameters need to be updated.
+The difference between the evaluation phase and the training phase is that no parameters need to be updated.
     Parameters explanation:
+
     -- model.eval(): enable testing model, disable batch normalizaiton and dropout;
+
     -- torch.no_grad(): disable autograd engine (no back propagation calculation), the advantage is to reduce memory usage and speed up computing.
+
     -- teacher_forcing_ratio = 0: in testing phase, we need to turn off the teacher forcing to ensure that the model uses the predicted results as input for next step.
 
 ## Training model
