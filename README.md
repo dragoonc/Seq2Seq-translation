@@ -33,9 +33,9 @@ The source code of Stanford CoreNLP(SCN) is realized in Java, which provides the
 --------
 StanfordNLP supports Python 3.6 or later. We strongly recommend that you install StanfordNLP from PyPI. If you already have pip or anaconda installed, simply run
 
-`pip install stanfordnlp
+`pip install stanfordnlp`
 
-`conda install stanfordnlp
+`conda install stanfordnlp`
 
 this should also help resolve all of the dependencies of StanfordNLP, for instance PyTorch 1.0.0 or above.
 Alternatively, you can also install from source of this git repository, which will give you more flexibility in developing on top of StanfordNLP and training your own models. For this option, run
@@ -49,17 +49,21 @@ pip install -e .
 Getting Started with the neural pipeline
 To run your first StanfordNLP pipeline, simply following these steps in your Python interactive interpreter:
 
-`import stanfordnlp
-`stanfordnlp.download('en')   # This downloads the English models for the neural pipeline
-`nlp = stanfordnlp.Pipeline() # This sets up a default neural pipeline in English
-`doc = nlp("Barack Obama was born in Hawaii.  He was elected president in 2008.")
-`doc.sentences[0].print_dependencies()
+`import stanfordnlp`
+
+`stanfordnlp.download('en')   # This downloads the English models for the neural pipeline`
+
+`nlp = stanfordnlp.Pipeline() # This sets up a default neural pipeline in English`
+
+`doc = nlp("Barack Obama was born in Hawaii.  He was elected president in 2008.")`
+
+`doc.sentences[0].print_dependencies()`
 
 The last command will print out the words in the first sentence in the input string (or Document, as it is represented in StanfordNLP), as well as the indices for the word that governs it in the Universal Dependencies parse of that sentence (its “head”), along with the dependency relation between the words. 
 
 It has also been provided with a multilingual demo script that demonstrates how one uses StanfordNLP in other languages than English, for example Chinese(traditional)
 
-`python demo/pipeline_demo.py -l zh
+`python demo/pipeline_demo.py -l zh`
 
 Check out [tutorial](https://stanfordnlp.github.io/stanfordnlp/installation_download.html#getting-started) for more details.
 
