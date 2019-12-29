@@ -64,7 +64,9 @@ this should also help resolve all of the dependencies of StanfordNLP, for instan
 Alternatively, you can also install from source of this git repository, which will give you more flexibility in developing on top of StanfordNLP and training your own models. For this option, run
 
 `git clone git@github.com:stanfordnlp/stanfordnlp.git`
+
 `cd stanfordnlp`
+
 `pip install -e`
 
 Check out [tutorial](https://stanfordnlp.github.io/stanfordnlp/installation_download.html#getting-started) for more details.
