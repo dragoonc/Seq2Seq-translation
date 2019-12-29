@@ -15,12 +15,14 @@ Or if not, please check [THIS](https://www.anaconda.com/download)
 We highly recommand you to check [THIS](https://pytorch.org/) in order to download a proper version of Pytorch.
 
 `conda install pytorch torchvision cudatoolkit=10.1 -c pytorch`
+
 or
+
 `pip3 install torch===1.3.1 torchvision===0.4.2 -f https://download.pytorch.org/whl/torch_stable.html`
 
 in which torchvision has been installed as well.
 
-and torchtext installation as below, or you may like to check [THIS](https://pypi.org/project/torchtext/).
+Torchtext installation as below, or you may like to check [THIS](https://pypi.org/project/torchtext/).
 
 `pip install torchtext`
 
