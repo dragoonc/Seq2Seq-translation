@@ -1,12 +1,12 @@
 # Seq2Seq example by pytorch
 This demo contains tutorials covering implementing sequence-to-sequence (seq2seq) model suing Pytorch 1.3(CUDA8.0 version) and TorchText 0.4 on Python 3.6.
 
--Brief
+## 1. Brief
 
 A sequence-to-sequence model implemented by pytorch and torchtext. This model was designed to translate python into cpp in grammar, however, the logic error and lacking of datasets blocked the original objective.
 This model has been diverted into a translator which translates English into Chinese.
 
--Getting Started
+## 2. Getting Started
 
 We assume that Python3 has been installed as basis on your system.
 
@@ -30,7 +30,7 @@ The environment has been settled.
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
-## Dataset
+## 3. Dataset
 --------
 
 Whole datasets contains 3 parts including a training one named as train1.txt, a testing one named as test1.txt and a valid one named as valid1.txt.
@@ -45,14 +45,14 @@ Original form: ['An English word.'] ['一个汉语词汇。']
 After sliced: ['An','English','word','.'] ['一个','汉语','词汇','。']
 
 
-### -Preparation
+### 3.1 Preparation
 --------
 
 The source language contains English sentences that are continuous with spaces between words and a full stop at the end, and Chinses sentences that are continuous with only a full stop at the end. We need to seperate all elements by spaces (all punctuations included), here we would like to use stanfordcorenlp as slice tool to preprocess the raw data.
 
 The source code of Stanford CoreNLP(SCN) is realized in Java, which provides the server mode for interaction. stanfordcorenlp is a Python toolkit that encapsulates SCN. Stanford officially released the Python version, which can be installed directly. For details, please check the [link](https://stanfordnlp.github.io/stanfordnlp/) in Reference.
 
-### -Setup
+### 3.2 Setup
 --------
 StanfordNLP supports Python 3.6 or later. We strongly recommend that you install StanfordNLP from PyPI. If you already have pip or anaconda installed, simply run
 
@@ -84,11 +84,11 @@ Run `Preprocess.py` to seperate sentences into words.
 Filling up `path = ''` with the path of unprocessed file and `nlp_path = ''` with the path of the unzipped StanfordNLP package.
 
 
-## Model
+## 4. Model
 --------
 Model_attention.py contains the encoder(attn_Encoder) and the decoder(attn_Decoder) functions which has formed the RNN structures of Seq2Seq model, along with the attention model.
 
-### -Encoder
+### 4.1 Encoder
 The original RNN in referenced paper was built as a 4 layers one-way LSTM, for training time we shrink it to a 2-layer GRU structure.
 
 `class attn_Encoder(nn.Module):`
@@ -110,7 +110,7 @@ The outputs of encoder are `outputs` which represent fixed vectors of the input 
 In forward function, the source language scr is designed to be transformed into dense vectors by embedding layer, and these words are embedded and passed to LSTM then.
 
 
-### -Attention
+### 4.2 Attention
 
 The attention model helps the Encoder to encode sequences into contextual vectors based on steps, and decode those encoded vectors differently.
 
@@ -126,7 +126,7 @@ The attention model is to bridges the encoder and decoder so it needs the hidden
 
 The output of Attention model is a weight vector of matching degree.
 
-### -Decoder
+### 4.3 Decoder
 A same 2-layer-deep LSTM as the Encoder. 
 
 `class attn_Decoder(nn.Module):`
@@ -145,7 +145,7 @@ The outputs of Decoder are `prediction` which is a demo test of a single input s
 
 As a comparison, we have retained the original Encoder and Decoder functions without attention model which could be realized in `Model.py`.
 
-## Seq2Seq network
+## 5. Seq2Seq network
 --------
 
 `class attn_Seq2Seq(nn.Module):`
@@ -161,7 +161,7 @@ The inputs of attention seq2seq model are source language and target language se
 
 The output is the corresponding sequence of input.
 
-## Training
+## 6. Training
 --------
 
 Function `train(model, iterator, optimizer, criterion, clip):` takes source language and target language as training data, optimizer and criterion as input.
@@ -170,7 +170,7 @@ And returns to loss values as results.
 
 `return epoch_loss / len(iterator)`
 
-## Testing
+## 7. Testing
 --------
 
 In order to test the performance of trained model we define a translate function and calculate the PPL at the same time. Inputing the source sentence manually which you need to translate, and test PPL value shows the performance of the trained model theoretically.
@@ -185,7 +185,7 @@ The input of `sentence` is the testing sentence you want to translate.
 
 And returns to a translated sentence.
 
-## Running program
+## 8. Running program
 
 Running this program in `main_attn.py`, there are several places you may wanna change depending on your own sets.
 
@@ -201,10 +201,10 @@ Filling up with your own direct paths of data files.
 
 Filling up with any English sentence you wanna translate (suggesting to find a sentence in test1.txt or valid1.txt).
 
-## Testing results
+## 9. Testing results
 --------
 
-### -Theoretical criterion
+### 9.1 Theoretical criterion
 
 Our hardware testing environment is based on Win10 OS, i7 9-Gen, 16G RAM and RTX2070 GPU. Training time and results has been list in Result.txt, and the testing result of model verification is as followed:
 
@@ -215,9 +215,9 @@ PPL(Preplexity) is a common criterion of language model, its basic idea is that 
 
 Our average test PPL is around 19 which is much smaller than the [baseline](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf) of the paper in Reference.
 
-### -Practical criterion
+### 9.2 Practical criterion
 
-A more straightforward way to test the trained model is checking the performance of model in practical applications(spelling check or machine translation). The function Translate.translate is to check the translation result of a single English sentence, which is treated as an intuitive approach in human habits.
+A more straightforward way to test the trained model is checking the performance of model in practical applications(spelling check or machine translation). The function `Translate.translate` is to check the translation result of a single English sentence, which is treated as an intuitive approach in human habits.
 
 
 ## Reference
