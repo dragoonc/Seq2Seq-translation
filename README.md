@@ -90,6 +90,7 @@ Model_attention.py contains the encoder(attn_Encoder) and the decoder(attn_Decod
 The original RNN in referenced paper was built as a 4 layers one-way LSTM, for training time we shrink it to a 2-layer GRU structure.
 
 `class attn_Encoder(nn.Module):`
+
 `    def __init__(self, input_dim, emb_dim, enc_hid_dim, dec_hid_dim, n_layers, dropout):`
 
 The inputs of class initialization contain input dimension, embedding dimension, hidden dimension, layer numbers and dropout rate.
@@ -98,7 +99,7 @@ The input dimension equals to the vocabulary length of source language sentences
 
 `    def forward(self, src):`
 
-The input of objects is a batch of data of source language, which will be realized in Func train in Train.py.
+The input of objects is a batch of data of source language, which will be realized in Func train in `Train.py`.
 
 `       return outputs, hidden`
 
@@ -112,7 +113,9 @@ In forward function, the source language scr is designed to be transformed into 
 The attention model helps the Encoder to encode sequences into contextual vectors based on steps, and decode those encoded vectors differently.
 
 `class Attention(nn.Module):`
+
 `    def __init__(self, enc_hid_dim, dec_hid_dim):`
+
 `    def forward(self, hidden, encoder_outputs):`
 
 The attention model is to bridges the encoder and decoder so it needs the hidden dimension of both encoder and decoder. Also its inputs contain hidden states and outputs of encoder.
@@ -136,7 +139,7 @@ The `input` is actually a batch of target language, `hidden` and `encoder_output
 
 The outputs of Decoder are `prediction` which is a demo test of a single input sentence, `output` and `hidden` are the final results of Decoder.
 
-As a comparison, we have retained the original Encoder and Decoder functions without attention model which could be realized in Model.py.
+As a comparison, we have retained the original Encoder and Decoder functions without attention model which could be realized in `Model.py`.
 
 ## Seq2Seq network
 --------
@@ -191,7 +194,7 @@ Filling up with any English sentence you wanna translate (suggesting to find a s
 ## Testing results
 --------
 
-### Theoretical criterion
+### -Theoretical criterion
 
 Our hardware testing environment is based on Win10 OS, i7 9-Gen, 16G RAM and RTX2070 GPU. Training time and results has been list in Result.txt, and the testing result of model verification is as followed:
 
@@ -202,7 +205,7 @@ PPL(Preplexity) is a common criterion of language model, its basic idea is that 
 
 Our average test PPL is around 19 which is much smaller than the [baseline](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf) of the paper in Reference.
 
-### Practical criterion
+### -Practical criterion
 
 A more straightforward way to test the trained model is checking the performance of model in practical applications(spelling check or machine translation). The function Translate.translate is to check the translation result of a single English sentence, which is treated as an intuitive approach in human habits.
 
