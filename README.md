@@ -2,10 +2,12 @@
 This demo contains tutorials covering implementing sequence-to-sequence (seq2seq) model suing Pytorch 1.3(CUDA8.0 version) and TorchText 0.4 on Python 3.6.
 
 -Brief
+
 A sequence-to-sequence model implemented by pytorch and torchtext. This model was designed to translate python into cpp in grammar, however, the logic error and lacking of datasets blocked the original objective.
 This model has been diverted into a translator which translates English into Chinese.
 
 -Getting Started
+
 We assume that Python3 has been installed as basis on your system.
 
 Or if not, please check [THIS](https://www.anaconda.com/download)
@@ -35,7 +37,9 @@ Textual data in each one of them is formed as:
 An English word .    一个 汉语 词汇 。
 
 Chinese sentences in original datasets were continuous, however we have to separate every word and punctuation in these sentences with spaces as preprocessing. The slice tool we used here is with stanfordcorenlp, links and references could be found after.
+/
 Original form: ['An English word.'] ['一个汉语词汇。']
+
 After sliced: ['An','English','word','.'] ['一个','汉语','词汇','。']
 
 
