@@ -130,11 +130,13 @@ The output of Attention model is a weight vector of matching degree.
 A same 2-layer-deep LSTM as the Encoder. 
 
 `class attn_Decoder(nn.Module):`
+
 `    def __init__(self, output_dim, emb_dim, enc_hid_dim, dec_hid_dim, n_layers, dropout, attention):`
 
 The decoder function is initialized with output dimension, embedding dimension, hidden dimension, layer numbers, dropout rate and weights from attention model.
 
 `    def forward(self, input, hidden, encoder_outputs):`
+
 The `input` is actually a batch of target language, `hidden` and `encoder_outputs` are results from the Encoder. 
 
 `    return prediction, output, hidden.squeeze(0)`
@@ -147,8 +149,11 @@ As a comparison, we have retained the original Encoder and Decoder functions wit
 --------
 
 `class attn_Seq2Seq(nn.Module):`
+
 `    def __init__(self, encoder, decoder, device):`
+
 `    def forward(self, src, trg, teacher_forcing_ratio=0.5):`
+
 
 The inputs of attention seq2seq model are source language and target language sequences.
 
@@ -175,6 +180,7 @@ In order to test the performance of trained model we define a translate function
 The input of `sentence` is the testing sentence you want to translate.
 
 `    sentence = Test.greedy_search(sentence, model, device, TRG)`
+
 `    return sentence`
 
 And returns to a translated sentence.
@@ -184,7 +190,9 @@ And returns to a translated sentence.
 Running this program in `main_attn.py`, there are several places you may wanna change depending on your own sets.
 
 `train_path = ""`
+
 `valid_path = ""`
+
 `test_path = ""`
 
 Filling up with your own direct paths of data files.
