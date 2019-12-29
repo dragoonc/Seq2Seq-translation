@@ -16,7 +16,6 @@ from torchtext.data import Iterator
 import torch.nn.functional as F
 
 class Dataset(data.Dataset):
-#    name = "lic2019"
     def __init__(self, path, src_field, trg_field, **kwargs):
         fields = [("src", src_field), ("trg", trg_field)]
         examples = []
