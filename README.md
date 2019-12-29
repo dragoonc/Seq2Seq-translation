@@ -186,7 +186,7 @@ The input of `sentence` is the testing sentence you want to translate.
 And returns to a translated sentence.
 
 ## 8. Running program
-
+--------
 Running this program in `main_attn.py`, there are several places you may wanna change depending on your own sets.
 
 `train_path = ""`
