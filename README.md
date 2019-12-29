@@ -3,12 +3,12 @@
 This demo contains tutorials covering implementing sequence-to-sequence (seq2seq) model suing Pytorch 1.3(CUDA8.0 version) and TorchText 0.4 on Python 3.6.
 
 ## 1. Brief
-
+--------
 A sequence-to-sequence model implemented by pytorch and torchtext. This model was designed to translate python into cpp in grammar, however, the logic error and lacking of datasets blocked the original objective.
 This model has been diverted into a translator which translates English into Chinese.
 
 ## 2. Getting Started
-
+--------
 We assume that Python3 has been installed as basis on your system.
 
 Or if not, please check [THIS](https://www.anaconda.com/download)
