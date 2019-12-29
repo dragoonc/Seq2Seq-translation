@@ -45,14 +45,14 @@ Original form: ['An English word.'] ['一个汉语词汇。']
 After sliced: ['An','English','word','.'] ['一个','汉语','词汇','。']
 
 
-### Preparation
+### -Preparation
 --------
 
 The source language contains English sentences that are continuous with spaces between words and a full stop at the end, and Chinses sentences that are continuous with only a full stop at the end. We need to seperate all elements by spaces (all punctuations included), here we would like to use stanfordcorenlp as slice tool to preprocess the raw data.
 
 The source code of Stanford CoreNLP(SCN) is realized in Java, which provides the server mode for interaction. stanfordcorenlp is a Python toolkit that encapsulates SCN. Stanford officially released the Python version, which can be installed directly. For details, please check the [link](https://stanfordnlp.github.io/stanfordnlp/) in Reference.
 
-### Setup
+### -Setup
 --------
 StanfordNLP supports Python 3.6 or later. We strongly recommend that you install StanfordNLP from PyPI. If you already have pip or anaconda installed, simply run
 
