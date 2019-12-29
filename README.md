@@ -1,4 +1,5 @@
 # Seq2Seq example by pytorch
+--------
 This demo contains tutorials covering implementing sequence-to-sequence (seq2seq) model suing Pytorch 1.3(CUDA8.0 version) and TorchText 0.4 on Python 3.6.
 
 ## 1. Brief
@@ -28,8 +29,6 @@ Torchtext installation as below, or you may like to check [THIS](https://pypi.or
 
 The environment has been settled.
 
----------------------------------------------------------------------------------------------------------------------------------------
-
 ## 3. Dataset
 --------
 
@@ -46,14 +45,13 @@ After sliced: ['An','English','word','.'] ['一个','汉语','词汇','。']
 
 
 ### 3.1 Preparation
---------
 
 The source language contains English sentences that are continuous with spaces between words and a full stop at the end, and Chinses sentences that are continuous with only a full stop at the end. We need to seperate all elements by spaces (all punctuations included), here we would like to use stanfordcorenlp as slice tool to preprocess the raw data.
 
 The source code of Stanford CoreNLP(SCN) is realized in Java, which provides the server mode for interaction. stanfordcorenlp is a Python toolkit that encapsulates SCN. Stanford officially released the Python version, which can be installed directly. For details, please check the [link](https://stanfordnlp.github.io/stanfordnlp/) in Reference.
 
 ### 3.2 Setup
---------
+
 StanfordNLP supports Python 3.6 or later. We strongly recommend that you install StanfordNLP from PyPI. If you already have pip or anaconda installed, simply run
 
 `pip install stanfordnlp`
@@ -89,6 +87,7 @@ Filling up `path = ''` with the path of unprocessed file and `nlp_path = ''` wit
 Model_attention.py contains the encoder(attn_Encoder) and the decoder(attn_Decoder) functions which has formed the RNN structures of Seq2Seq model, along with the attention model.
 
 ### 4.1 Encoder
+
 The original RNN in referenced paper was built as a 4 layers one-way LSTM, for training time we shrink it to a 2-layer GRU structure.
 
 `class attn_Encoder(nn.Module):`
@@ -127,6 +126,7 @@ The attention model is to bridges the encoder and decoder so it needs the hidden
 The output of Attention model is a weight vector of matching degree.
 
 ### 4.3 Decoder
+
 A same 2-layer-deep LSTM as the Encoder. 
 
 `class attn_Decoder(nn.Module):`
