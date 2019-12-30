@@ -11,7 +11,7 @@ This model has been diverted into a translator which translates English into Chi
 --------
 We assume that Python3 has been installed as basis on your system.
 
-Or if not, please check [THIS](https://www.anaconda.com/download)
+Or if not, please check [THIS](https://www.anaconda.com/download) for installation.
 
 We highly recommand you to check [THIS](https://pytorch.org/) in order to download a proper version of Pytorch.
 
