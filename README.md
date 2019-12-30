@@ -84,7 +84,7 @@ Filling up `path = ''` with the path of unprocessed file and `nlp_path = ''` wit
 
 ## 4. Model
 --------
-Model_attention.py contains the encoder(attn_Encoder) and the decoder(attn_Decoder) functions which has formed the RNN structures of Seq2Seq model, along with the attention model.
+`Model_attention.py` contains the encoder(attn_Encoder) and the decoder(attn_Decoder) functions which has formed the RNN structures of Seq2Seq model, along with the attention model.
 
 ### 4.1 Encoder
 
