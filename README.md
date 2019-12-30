@@ -96,7 +96,7 @@ The original RNN in referenced paper was built as a 4 layers one-way LSTM, for t
 
 The inputs of class initialization contain input dimension, embedding dimension, hidden dimension, layer numbers and dropout rate.
 
-The input dimension equals to the vocabulary length of source language sentences, other parameters could be found and settled in Paras.py. 
+The input dimension equals to the vocabulary length of source language sentences, other parameters could be found and settled in `Paras.py`. 
 
 `    def forward(self, src):`
 
