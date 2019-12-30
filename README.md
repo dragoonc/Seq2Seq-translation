@@ -209,6 +209,7 @@ Filling up with any English sentence you wanna translate (suggesting to find a s
 Our hardware testing environment is based on Win10 OS, i7 9-Gen, 16G RAM and RTX2070 GPU. Training time and results has been list in Result.txt, and the testing result of model verification is as followed:
 
 | Test Loss: 2.939 | Test PPL:  18.890 |
+
 | Test Loss: 3.207 | Test PPL:  24.711 |(baseline)
 
 PPL(Preplexity) is a common criterion of language model, its basic idea is that it is better to give a higher probabiliby value to sentences in test sets. When the language model is trained and the sentence in the test set is normal, the higher probability in the test set, the better model is trained. From the definition and formular of PPL, we could know that a better language model should keep a lower value of PPL.
