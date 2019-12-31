@@ -1,3 +1,17 @@
+version 1.0
+
+A sequence-to-sequence model applied in CHS-ENG translation.
+
+version 1.1
+
+Data preprocessing by StanfordNLP.
+
+version 1.2
+
+Improvment with attention model.
+
+UPDATE: `Translate.translate` is now temporarily unavailable.
+
 # Seq2Seq example by pytorch
 --------
 This demo contains tutorials covering implementing sequence-to-sequence (seq2seq) model suing Pytorch 1.3(CUDA8.0 version) and TorchText 0.4 on Python 3.6.
